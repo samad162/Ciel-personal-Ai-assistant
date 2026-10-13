@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <external-files-path name="ciel_documents" path="Documents" />
+    <external-files-path name="ciel_images" path="Pictures" />
+    <cache-path name="ciel_cache" path="." />
+    <files-path name="ciel_files" path="." />
+</paths>

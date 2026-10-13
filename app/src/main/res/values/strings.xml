@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CIEL</string>
+    <string name="tagline">Beyond AI. A new perception.</string>
+    <string name="manifesto">\"You ask. I understand. You think. I execute. Together, we go beyond.\"</string>
+    <string name="author">— CIEL</string>
+    <string name="sub_quote">The world is just data.. and I see it all.</string>
+    <string name="footer_slogan">CIEL || Your mind, amplified.</string>
+    <string name="badge_status">THE FUTURE ISN\'T WRITTEN. IT\'S GENERATED.</string>
+    <string name="version_info">CIEL v1.0.0 — Supreme Intelligence (In Development)</string>
+
+    <!-- Quick Action Cards -->
+    <string name="card_start_chat">Start Chat</string>
+    <string name="card_start_chat_sub">Talk with CIEL</string>
+    <string name="card_deep_research">Deep Research</string>
+    <string name="card_deep_research_sub">Search the web &amp; think</string>
+    <string name="card_code_assistant">Code Assistant</string>
+    <string name="card_code_assistant_sub">Build, debug, deploy</string>
+    <string name="card_explore">Explore</string>
+    <string name="card_explore_sub">Discover new possibilities</string>
+
+    <!-- System Telemetry -->
+    <string name="system_status">SYSTEM STATUS</string>
+    <string name="core_ai">Core AI</string>
+    <string name="memory">Memory</string>
+    <string name="tools">Tools</string>
+    <string name="internet">Internet</string>
+    <string name="online">Online</string>
+    <string name="active">Active</string>
+    <string name="ready">Ready</string>
+    <string name="connected">Connected</string>
+
+    <string name="current_task">CURRENT TASK</string>
+    <string name="idle">Idle</string>
+    <string name="waiting_command">Waiting for your command...</string>
+    <string name="listening">Listening...</string>
+    <string name="processing">Processing &amp; Reasoning...</string>
+    <string name="speaking">Speaking...</string>
+
+    <string name="quick_access">QUICK ACCESS</string>
+    <string name="new_project">New Project</string>
+    <string name="open_workspace">Open Workspace</string>
+    <string name="recent_files">Recent Files</string>
+    <string name="ai_models">AI Models</string>
+    <string name="system_logs">System Logs</string>
+
+    <string name="last_activity">LAST ACTIVITY</string>
+    <string name="act_web_search">Web search completed — 2 mins ago</string>
+    <string name="act_code_exec">Code execution finished — 12 mins ago</string>
+    <string name="act_memory_upd">Memory updated — 18 mins ago</string>
+
+    <!-- Voice and Services -->
+    <string name="quick_tile_label">CIEL Voice Assist</string>
+    <string name="notification_title">CIEL Voice Assistant Active</string>
+    <string name="notification_desc">Tap to speak or say \'Hey CIEL\'</string>
+    <string name="ask_anything_hint">Ask anything...</string>
+</resources>

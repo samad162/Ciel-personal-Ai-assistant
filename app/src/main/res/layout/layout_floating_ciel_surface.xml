@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/floatingRootLayout"
+    android:layout_width="340dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_floating_glass"
+    android:orientation="vertical"
+    android:padding="14dp"
+    android:elevation="16dp">
+
+    <!-- Header Bar -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <ImageView
+            android:id="@+id/imgAvatar"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ciel_avatar"
+            android:contentDescription="CIEL Avatar" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/imgAvatar"
+            android:layout_marginStart="8dp"
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CIEL COMPANION"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:letterSpacing="0.08" />
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ready for command"
+                android:textColor="#00F0FF"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/btnExpandFull"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:padding="3dp"
+                android:src="@drawable/ic_ciel_sparkle"
+                android:contentDescription="Expand to full app"
+                android:layout_marginEnd="6dp" />
+
+            <ImageView
+                android:id="@+id/btnMinimize"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:padding="4dp"
+                android:src="@android:drawable/ic_menu_crop"
+                android:contentDescription="Minimize"
+                android:layout_marginEnd="6dp" />
+
+            <ImageView
+                android:id="@+id/btnClose"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:padding="4dp"
+                android:src="@android:drawable/ic_menu_close_clear_cancel"
+                android:contentDescription="Close" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- Response / Status Box -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxHeight="160dp"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:id="@+id/tvResponse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="I'm here with you. Speak naturally, ask about your screen, or request any action."
+            android:textColor="#E2E8F0"
+            android:textSize="12sp"
+            android:lineSpacingExtra="3dp"
+            android:padding="8dp"
+            android:background="#33030712" />
+    </ScrollView>
+
+    <!-- Quick Action Chips -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:layout_marginBottom="10dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/chipLiveScreen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="✨ Live Screen"
+                android:textColor="#38BDF8"
+                android:textSize="10.5sp"
+                android:textStyle="bold"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp"
+                android:background="@drawable/bg_chip_action"
+                android:layout_marginEnd="6dp" />
+
+            <TextView
+                android:id="@+id/chipCamera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📷 Camera"
+                android:textColor="#00F0FF"
+                android:textSize="10.5sp"
+                android:textStyle="bold"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp"
+                android:background="@drawable/bg_chip_action"
+                android:layout_marginEnd="6dp" />
+
+            <TextView
+                android:id="@+id/chipDocGen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📄 PDF Report"
+                android:textColor="#10B981"
+                android:textSize="10.5sp"
+                android:textStyle="bold"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp"
+                android:background="@drawable/bg_chip_action"
+                android:layout_marginEnd="6dp" />
+
+            <TextView
+                android:id="@+id/chipImageGen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎨 Image Gen"
+                android:textColor="#A855F7"
+                android:textSize="10.5sp"
+                android:textStyle="bold"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp"
+                android:background="@drawable/bg_chip_action" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Input Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/bg_floating_input"
+        android:paddingHorizontal="8dp">
+
+        <EditText
+            android:id="@+id/etInput"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:hint="Ask or type command..."
+            android:textColorHint="#64748B"
+            android:textColor="#FFFFFF"
+            android:textSize="12.5sp"
+            android:background="@null"
+            android:imeOptions="actionSend"
+            android:inputType="textCapSentences"
+            android:singleLine="true" />
+
+        <ImageView
+            android:id="@+id/btnSend"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:padding="6dp"
+            android:src="@android:drawable/ic_menu_send"
+            android:tint="#00F0FF"
+            android:contentDescription="Send"
+            android:layout_marginEnd="4dp" />
+
+        <ImageView
+            android:id="@+id/btnMic"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:padding="6dp"
+            android:src="@drawable/ic_mic"
+            android:background="@drawable/bg_mic_circle"
+            android:contentDescription="Voice Input" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Audio & Voice Permissions -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+    <!-- Geolocation & GPS Permissions -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <!-- Camera & Flashlight Tools -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+
+    <!-- Alarms, Timers & Communication -->
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <!-- Network & AI Streaming -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- System-Wide Assistant & Overlay Capabilities -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+
+    <!-- Device Utility Tools -->
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" 
+        tools:ignore="QueryAllPackagesPermission" />
+
+    <!-- Optional Hardware Features -->
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false" />
+    <uses-feature android:name="android.hardware.location.gps" android:required="false" />
+
+    <application
+        android:name=".CielApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CielAssistant"
+        android:largeHeap="false"
+        android:hardwareAccelerated="true">
+
+        <!-- Main Conversational Activity with Lock Screen Wake Capabilities -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize"
+            android:showWhenLocked="true"
+            android:turnScreenOn="true"
+            android:showForAllUsers="true"
+            android:inheritShowWhenLocked="true"
+            android:theme="@style/Theme.CielAssistant">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.ASSIST" />
+            </intent-filter>
+
+            <!-- Voice Assist Intent -->
+            <intent-filter>
+                <action android:name="android.intent.action.VOICE_ASSIST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <!-- Deep link for instant push-to-talk activation -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="ciel" android:host="assistant" />
+            </intent-filter>
+        </activity>
+
+        <!-- Foreground Service for Voice Interaction & Wake Word Detection -->
+        <service
+            android:name=".service.WakeWordDetectionService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="microphone" />
+
+        <!-- Floating Assistant Window Manager Service -->
+        <service
+            android:name=".service.FloatingAssistantService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="ai.ciel.action.SHOW_OVERLAY" />
+                <action android:name="ai.ciel.action.START_FLOATING_VOICE" />
+            </intent-filter>
+        </service>
+
+        <!-- Android Quick Settings Tile for One-Tap Assistant Activation -->
+        <service
+            android:name=".service.CielQuickSettingsTileService"
+            android:label="@string/quick_tile_label"
+            android:icon="@drawable/ic_ciel_sparkle"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
+        <!-- Home Screen App Widget -->
+        <receiver
+            android:name=".tools.CielAppWidgetProvider"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/ciel_appwidget_info" />
+        </receiver>
+
+        <!-- Screen Capture MediaProjection Service for Live Screen Intelligence -->
+        <service
+            android:name=".service.ScreenCaptureService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="mediaProjection" />
+
+        <!-- Secure File Provider for Document and Image Sharing -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="ai.ciel.assistant.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/ciel_file_paths" />
+        </provider>
+
+    </application>
+</manifest>

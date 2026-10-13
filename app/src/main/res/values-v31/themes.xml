@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.CielAssistant" parent="android:Theme.Material.NoActionBar">
+        <item name="android:statusBarColor">#070B14</item>
+        <item name="android:navigationBarColor">#070B14</item>
+        <item name="android:windowBackground">#070B14</item>
+        <item name="android:colorBackground">#070B14</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:windowSplashScreenBackground">#070B14</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_ciel_sparkle</item>
+        <item name="android:windowSplashScreenIconBackgroundColor">#070B14</item>
+    </style>
+</resources>

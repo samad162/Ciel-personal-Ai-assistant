@@ -1,0 +1,28 @@
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+/app/build
+captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# APK & Bundle binaries
+*.apk
+*.ap_
+*.aab
+Ciel-AI-Assistant.apk
+
+# Keystores & sensitive credentials
+*.jks
+*.keystore
+*.p12
+*.pem
+*.key
+google-services.json
+
+# Scratch & test screenshots in root
+/emulator_screen_*.png
